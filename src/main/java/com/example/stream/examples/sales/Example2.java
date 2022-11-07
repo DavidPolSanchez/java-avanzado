@@ -17,12 +17,13 @@ public class Example2 {
 
     public static void main(String[] args) {
         List<Sale> sales = getSales();
+        List<String> cities;
 
         List<Customer> Customers = sales.stream()
                 .map(Sale::getCustomer)
                 .toList();
 
-        List<String> cities = Customers.stream().map(Customer::getCity).distinct().toList();
+        cities = Customers.stream().map(Customer::getCity).distinct().toList();
         System.out.println(cities);
 
     }
