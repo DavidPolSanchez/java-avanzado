@@ -1,7 +1,9 @@
 package com.example.stream.examples.sales;
 
+import com.example.domain.Customer;
 import com.example.domain.Sale;
 
+import java.util.Comparator;
 import java.util.List;
 
 import static com.example.utils.DataUtils.getSales;
@@ -16,6 +18,18 @@ public class Example4 {
 
     public static void main(String[] args) {
         List<Sale> sales = getSales();
+
+        List<Customer> customers ;
+
+        customers= sales.stream()
+                .map(Sale::getCustomer)
+                .filter(customer -> customer.getCity().equals("Cambridge"))
+                .sorted(Comparator.comparing(Customer::getName))
+                .distinct()
+                .toList();
+        List<String> names = customers.stream().map(Customer::getName).toList();
+
+        System.out.println(names);
 
     }
 }
