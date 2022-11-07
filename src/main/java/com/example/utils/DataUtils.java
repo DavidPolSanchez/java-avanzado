@@ -60,8 +60,8 @@ public class DataUtils {
         return Arrays.asList(
                 new Sale(brian, 2021, 300, "12345678"),
                 new Sale(raoul, 2012, 1000, "erTyHGfB"),
-                new Sale(raoul, 2021, 400, "FGtYYyUjH"),
-                new Sale(raoul, 2021, 500, "6654gH645"),
+                new Sale(raoul, 2021, 500, "FGtYYyUjH"),
+                new Sale(raoul, 2021, 400, "6654gH645"),
                 new Sale(mario, 2012, 710, "dFRE345GF"),
                 new Sale(mario, 2012, 700, "222343gfG"),
                 new Sale(alan, 2012, 950, "TYUu55646")
