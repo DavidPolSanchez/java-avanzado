@@ -5,6 +5,8 @@ import com.example.domain.Sale;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static com.example.utils.DataUtils.getSales;
 
@@ -21,6 +23,7 @@ public class Example4 {
 
         List<Customer> customers ;
 
+       //1
         customers= sales.stream()
                 .map(Sale::getCustomer)
                 .filter(customer -> customer.getCity().equals("Cambridge"))
@@ -29,7 +32,13 @@ public class Example4 {
                 .toList();
         List<String> names = customers.stream().map(Customer::getName).toList();
 
-        System.out.println(names);
+        //2 Correct elements
+        String elements = sales.stream()
+                .map(sale -> sale.getCustomer().getName())
+                .distinct()
+                .sorted()
+                .collect(Collectors.joining(","));
+        System.out.println(elements);
 
     }
 }
